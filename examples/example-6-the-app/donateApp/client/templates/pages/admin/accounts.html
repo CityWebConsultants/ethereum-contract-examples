@@ -1,0 +1,85 @@
+<template name="accounts">
+  {{> header}}
+  <div class="container col-md-6 col-md-push-1">
+    <div class="row">
+      <div class="form-wrapper col-md-12">
+        <div class="row ">
+          <h2>Manage accounts</h2>
+          <br/>
+          <div class="col-md-1 text-center"><strong>Enabled</strong></div>
+          <div class="col-md-4"><strong>Account address</strong></div>
+          <div class="col-md-5"><strong>Weight</strong></div>
+        </div>
+        <form id="updateAccounts">
+          {{#each listAccounts}}
+          <div class="form-group row text-center">
+            <div class="col-md-1">
+              {{#if this.isOwner}}
+              <i class="fa fa-lock fa-3x" aria-hidden="true"></i>
+              <input checked class="hidden" id="accountStatus-{{@index}}" type="checkbox">
+              {{else}}
+                {{#if this.status}}
+                  <input checked class="form-control" id="accountStatus-{{@index}}" type="checkbox">
+                {{else}}
+                  <input unchecked class="form-control" id="accountStatus-{{@index}}" type="checkbox">
+                {{/if}}
+              {{/if}}
+            </div>
+            <div class="col-md-6">
+              <label for=""></label>
+              <input id="accountAddress-{{@index}}" disabled class="form-control col-md-4" value={{this.address}} type="text">
+            </div>
+            <div class="col-md-1">
+              <input id="accountWeight-{{@index}}" class="form-control col-md-1 small-integer" value={{this.weight}} type="text">
+            </div>
+            <div class="col-md-1 accountIndicator" style="background: #{{this.color}}"></div>
+          </div>
+          {{/each}}
+
+          <!-- @todo refactor this form to use better form controls for lining stuff up -->
+          <!-- <div class="col-md-5"></div> -->
+          <div class="col-md-6 col-md-push-2">
+            <button type="submit" class="btn btn-primary pull-right">Update accounts</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br/>
+
+    <div class="row">
+      <form id="newAccount">
+        <!-- @todo fix up these forms to use more form groupy stuff -->
+        <div class="form-group row text-center">
+          <div class="col-md-1">
+            <!-- <input class="form-control" id="newAccountEnabled" type="checkbox"> -->
+          </div>
+          <div class="col-md-6">
+            <label for=""></label>
+            <input class="form-control col-md-4" pattern="[0-9a-fA-Fx]{42}" placeholder="0x00000000000000000000000000000000000000" id="newAccountAddress" type="text">
+          </div>
+          <div class="col-md-1">
+            <input class="form-control col-md-1 small-integer" id="newAccountWeight" type="number" min="0">
+          </div>
+        </div>
+        <div class="col-md-6 col-md-push-2">
+          <button type="Submit" class="btn btn-primary pull-right" >Add account</button>
+        </div>
+      </form>
+    </div>
+  <div class="container col-md-6">
+    <div class="row">
+      {{> transactionLog}}
+    </div>
+  </div>
+</div>
+<div class="container col-md-6">
+  <br/>
+  <br/>
+  <div class="pull-left">
+    {{#if listAccounts}}
+      {{> accountsDonutChart}}
+    {{/if}}
+  </div>
+</div>
+
+</template>

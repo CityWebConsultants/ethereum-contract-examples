@@ -1,0 +1,71 @@
+{
+  "contract_name": "ForwardGas",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "addUser",
+      "outputs": [],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "forwardFunds",
+      "outputs": [],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "expensiveComputation",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "payable": true,
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "AddressAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amountSent",
+          "type": "uint256"
+        }
+      ],
+      "name": "FundsForwarded",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052600080555b600080546001818101909255815433929190811061002357fe5b906000526020600020900160005b6101000a815481600160a060020a030219169083600160a060020a0316021790555033600260006101000a815481600160a060020a030219169083600160a060020a031602179055505b5b60eb8061008a6000396000f3006060604052361560375763ffffffff60e060020a600035041663455c928c811460455780639d73528614604d578063dc01b156146055575b60435b60406067565b5b565b005b60436067565b005b60436040565b005b3415604d57600080fd5b60436040565b005b6000805460018181019092558154339291908110608057fe5b906000526020600020900160005b6101000a815481600160a060020a030219169083600160a060020a0316021790555060406040565b5b565b5b565b5b5600a165627a7a72305820c8521e6db9017a047871888a25e30d98e2be9a35468fe1e0d2f93fef23eafcd10029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1500459545431
+}

@@ -1,0 +1,17 @@
+<template name="destroy">
+  {{> header}}
+
+  <div class="container col-md-4 col-md-push-1">
+    <h2>Destroy contract</h2>
+    <br/>
+    <p>This contract will be irretreivably destroyed and all enabled participants will be sent their remaining balance.</p>
+    <p>Type "I UNDERSTAND" in the box below to proceed.</p>
+
+    <form id="destroy">
+    <div class="form-group row">
+      <input id="destroyConfirmation" class="form-control" type="text">
+    </div>
+      <button class="btn btn-danger pull-right" type="submit">Destroy contract</button>
+    </form>
+  </div>
+</template>

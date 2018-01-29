@@ -1,0 +1,51 @@
+<template name="donutButton">
+  <h2>Send a donation</h2>
+  <form id="donateButton">
+    <input id="donateAmountField" type="text">
+    <!-- {{getContractAddress}}
+    <input id="contractIdField" disabled value="{{getContractAddress}}" class="hidden"> -->
+    <button type="submit" class="btn btn-primary">Donate Eth</button>
+    <span class="help-block">Submitting to contract with ID  </span>
+  </form>
+
+  <h2>Embed code</h2>
+  <form id="buttonEmbedCodeForm">
+    <textarea class="form-control input-group-lg" id="buttonEmbedCode">
+    <fieldset id="ethdonut-donate-form">
+    <label> Ether:
+      <input type="text" id="amount"></input>
+    </label>
+    <button onclick="sendEthDonut()">Donate Eth</button>
+    <div id="response"></div>
+  </fieldset>
+
+  <script>
+    // Check if web3 injected for us
+    window.onload = function() {
+      if (typeof web3 === 'undefined') {
+        // Only show the button if option is available
+        document.getElementById('ethdonut-donate-form').remove()
+      }
+    }
+    function sendEthDonut() {
+      web3.eth.sendTransaction({
+        from: web3.eth.coinbase,
+        to: {{getContractAddress}},
+        value: web3.toWei(document.getElementById("amount").value, 'ether')
+      }, function(error, result) {
+        if (!error) {
+          document.getElementById('response').innerHTML = 'Success: <a href="https://testnet.etherscan.io/tx/' + result + '"> View Transaction </a>'
+        } else {
+          document.getElementById('response').innerHTML = '<pre>' + error + '</pre>'
+        }
+      })
+    }
+  </script>
+  </textarea>
+
+  <button class="btn btn-primary" id="clipboardButton" data-clipboard-target="#buttonEmbedCode" data-clipboard-action="copy">
+    Copy embed code
+  </button>
+  </form>
+
+</template>

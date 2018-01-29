@@ -1,0 +1,44 @@
+/* CSS declarations go here */
+/*img {
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+          transition:         transform .8s ease-in-out;
+}
+img:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}*/
+
+form input, form select, form select option, .selectpicker, optgroup {
+  font-family: monospace;
+}
+
+h2.header.contractAddress {
+  font-size: 2em;
+  position: absolute;
+  top:7px;
+}
+
+img.splash.spin, img#donutLogo.spin {
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+.accountIndicator {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.small-integer {
+  width: 4em;
+}

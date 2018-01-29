@@ -1,0 +1,78 @@
+<template name="transferBalances">
+  {{> header}}
+  <div class="container-fluid">
+    <div class="row">
+    <div class="container col-md-6 col-md-push-1">
+      <h2>Transfer</h2>
+      <br/>
+      <form id="transferBalance" class="">
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label" for="transferFrom">From:</label>
+            <div class="col-md-6">
+              <select id="transferFrom" class="form-control selectpicker">
+                <optgroup>
+                  <option>Choose address</option>
+                  {{#each account in listAccounts}}
+                    <option>{{ account.address }}</option>
+                  {{/each}}
+              </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label" for="transferTo">To:</label>
+            <div class="col-md-6">
+              <select id="transferTo" class="form-control">
+                <option>Choose address</option>
+                {{#each account in listAccounts}}
+                  <option>{{ account.address }}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label" for="transferAmount">Ether Amount</label>
+            <div class="col-md-6">
+              <input id="transferAmount" class="form-control" type=text>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-push-2 form-group row">
+            <button class="pull-right btn btn-primary" type="submit">Transfer</button>
+          </div>
+      </form>
+  </div>
+
+    <div class="container col-md-6 col-md-pull-1">
+      <h2>Balances</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Eth balance</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {{#each account in listAccounts}}
+          <tr>
+            <td>{{ account.address }}</td>
+            <td>{{ account.balance}}</td>
+
+          </tr>
+          {{/each}}
+          <th>Total Eth</th>
+
+          <!-- <th>Total</th>
+          <td></td> -->
+          <td>{{getContractBalance}}</td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container col-md-6 col-md-push-1">
+  <div class="row">
+    {{> transactionLog}}
+  </div>
+</div>
+</template>

@@ -1,0 +1,47 @@
+
+const Web3 = require('web3')
+
+let web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+
+let uvu = artifacts.require("YoutubeViews")
+
+contract('uvu', function(accounts) {
+  var uvud
+
+  it("Should retrive deployed contract.", function(done) {
+    uvu.deployed().then(function(instance) {
+      uvud = instance
+      assert.isOk(uvud)
+      done()
+    })
+  })
+
+  it("Should call youtube views function", function(done) {
+    uvud.update({from:web3.eth.accounts[0]})
+    .then(function(tx) {
+      assert.isOk(tx.receipt)
+      console.log(tx)
+      done()
+    }, function(err) {
+
+      })
+    })
+
+    it("Should receive youtube count", function(done){
+        var events = uvud.allEvents()
+        events.watch(function(err, ev){
+        if (!err) {
+          if (ev.event === 'newYoutubeViewsCount') {
+            console.log(ev)
+            console.log(ev.args.views)
+            done()
+            break
+          }
+        } else {
+          assert.equal(true, false)
+          console.error(err)
+          console.log("Error: " + err)
+        }
+      })
+    })
+})

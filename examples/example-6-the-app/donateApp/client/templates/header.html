@@ -1,0 +1,24 @@
+<template name="header">
+  <div class="row col-md-12">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <a href="/">
+        <img id="donutLogo" style="float:left;margin-right:20px" src="/donut_icon.png" width="80">
+        <h1>Eth Donut</h1>
+      </a>
+    </div>
+
+    <div class="col-md-8 col-md-pull-1">
+    <!-- {{#if etherScanLink}} -->
+    <!-- {{getEtherscanLink}} -->
+      <h2 class="header contractAddress">Contract address: <a href="https://kovan.etherscan.io/address/{{getContractAddress}}">{{getContractAddress}}</a></h2>
+    <!-- {{else}} -->
+      <!-- <h2>Contract Address: {{getContractAddress}}</h2> -->
+    <!-- {{/if}} -->
+
+    </div>
+  </div>
+  <div class="container col-md-offset-1">
+    {{> mainMenu}}
+  </div>
+</template>

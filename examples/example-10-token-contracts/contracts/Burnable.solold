@@ -1,0 +1,29 @@
+pragma solidity ^0.4.11;
+
+ import './StandardToken.sol';
+ import './SafeMath.sol';
+
+
+ contract BurnableToken is StandardToken {
+
+   address public constant BURN_ADDRESS = 0;
+
+  /* How many tokens we burned */
+   event Burned(address burner, uint burnedAmount);
+
+   /**
+    * Burn extra tokens from a balance.
+    *
+    */
+   function burn(uint256 burnAmount) {
+
+     address burner = msg.sender;
+     /*balances[burner] = balances[burner].sub(burnAmount);
+     totalSupply = totalSupply.sub(burnAmount);*/
+     Burned(burner, burnAmount);
+
+     // Keep exchanges happy by sending the burned amount to
+     // "burn address"
+     Transfer(burner, BURN_ADDRESS, burnAmount);
+   }
+ }

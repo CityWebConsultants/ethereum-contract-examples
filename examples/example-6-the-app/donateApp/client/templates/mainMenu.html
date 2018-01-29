@@ -1,0 +1,26 @@
+<template name="mainMenu">
+  <!-- need to generate menus programmatically after login -->
+  <!-- maybe should be using a query param instead  -->
+  <!-- which was is the best? -->
+  <!-- <Ah!!! problem the ursl cannot be known in advance so we need to either make
+  use of a parameter or...?> -->
+<nav>
+  <ul class="nav nav-tabs">
+    {{#if isLoggedIn=true}}
+    <li><a href="/contract/{{contractAddress}}/my-account">My account</a></li>
+    <!-- <li><a href="/contract/{{contractAddress}}/log">Transaction log</a></li> -->
+    {{/if}}
+    {{#if isAdmin=true}}
+    <ul class="nav nav-tabs">
+      <li><a href="/contract/{{contractAddress}}/admin/accounts">User accounts</a></li>
+      <li><a href="/contract/{{contractAddress}}/admin/transfer-balances">Transfer & Balances</a></li>
+      <li><a href="/contract/{{contractAddress}}/admin/transfer-owner">Transfer Owner</a></li>
+      <li><a href="/contract/{{contractAddress}}/admin/destroy">Destroy</a></li>
+    </ul>
+    {{/if}}
+    {{#if isLoggedIn=true}}
+    <li><a href="/logout">Logout</a></li>
+    {{/if}}
+  </ul>
+</nav>
+</template>

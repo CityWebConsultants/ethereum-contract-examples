@@ -1,0 +1,55 @@
+<template name="myAccount">
+  {{> header}}
+  <div class="container col-md-6 col-md-push-1">
+    <h2>My account</h2>
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Account address</td>
+            <td>Contract balance</td>
+            <td>Weighting</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{getUserAccountAddress}}</td>
+            <td>{{getUserAccountBalance}}</td>
+            <td>{{getUserWeighting}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <!-- <div class="col-md-2">
+        <div><strong>Account address</strong></div>
+        <div>dshksdh</div>
+      </div>
+      //@TODO PUT THIS IN A TABLE
+      <div class="col-md-2">
+        <div><strong>Balance</strong></div>
+        <div>E 0.222222344555</div>
+      </div>
+      <div class="col-md-2">
+        <div><strong>Weighting</strong></div>
+        <div>40%</div>
+      </div> -->
+    </div>
+    <div class="row">
+      <form id="withdraw" class="form-inline pull-right">
+        <div class="form-group">
+          <label class="" for="payoutEther">Withdraw Ether from this contract.</label>
+          <div class="">
+            <input placeholder="0.0" id="amount" class="form-control" type=text value={{getContractOwner}}>
+            <button class="btn btn-primary" type="submit">Withdraw</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row col-md-6">
+      {{> transactionLog}}
+  </div>
+  </div>
+
+</template>

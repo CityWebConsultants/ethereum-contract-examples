@@ -1,0 +1,122 @@
+return
+let ExampleToken = artifacts.require("./ExampleToken.sol")
+//web3.personal.unlockAccount("address", "pass", 0);
+// @todo deploy manually
+//let contractAddress = '0x0'
+//console.log(this)
+// do we have an option to test at a specific address
+
+// can use contract at to choose to work on an existing contract
+
+
+//how can we create test cases for different situations...
+
+//const Web3 = require('web3')
+//let web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+
+//where can we get the from address from
+
+// so we should maybe deploy our own contract --- or can we pass parameters
+
+//what happens if we manually deploy this!?
+
+
+// can deploy contract by self
+
+// contract('ExampleToken', function(accounts) {
+//   it("Contract should have total supply of 10000 coins", function() {
+//     return ExampleToken.deployed().then(function(instance) {
+// /*  return ExampleToken.at('0x5c6cEC1D49f277f30518243Dc180556280B663E4').then(function(instance) {*/
+//       //console.log(instance)
+//
+//       return instance.totalSupply.call()
+//     }).then(function(totalSupply) {
+//       assert.equal(totalSupply.toNumber(), 10000)
+//     })
+//   })
+// })
+
+  //So what is the difference with a human token....
+  // Mnemonic
+
+
+
+// get token height.
+
+  // it("Contract should be owned by default account", function() {
+  //   return ExampleToken.deployed().then(function(instance) {
+  //
+  //   })
+  // })
+
+
+
+
+//@todo test ownership
+//@todo what happens with duped coins and listing them somewhere like waves.
+
+
+
+// var MetaCoin = artifacts.require("./MetaCoin.sol");
+//
+// contract('MetaCoin', function(accounts) {
+//   it("should put 10000 MetaCoin in the first account", function() {
+//     return MetaCoin.deployed().then(function(instance) {
+//       return instance.getBalance.call(accounts[0]);
+//     }).then(function(balance) {
+//       assert.equal(balance.valueOf(), 10000, "10000 wasn't in the first account");
+//     });
+//   });
+//   it("should call a function that depends on a linked library", function() {
+//     var meta;
+//     var metaCoinBalance;
+//     var metaCoinEthBalance;
+//
+//     return MetaCoin.deployed().then(function(instance) {
+//       meta = instance;
+//       return meta.getBalance.call(accounts[0]);
+//     }).then(function(outCoinBalance) {
+//       metaCoinBalance = outCoinBalance.toNumber();
+//       return meta.getBalanceInEth.call(accounts[0]);
+//     }).then(function(outCoinBalanceEth) {
+//       metaCoinEthBalance = outCoinBalanceEth.toNumber();
+//     }).then(function() {
+//       assert.equal(metaCoinEthBalance, 2 * metaCoinBalance, "Library function returned unexpected function, linkage may be broken");
+//     });
+//   });
+//   it("should send coin correctly", function() {
+//     var meta;
+//
+//     // Get initial balances of first and second account.
+//     var account_one = accounts[0];
+//     var account_two = accounts[1];
+//
+//     var account_one_starting_balance;
+//     var account_two_starting_balance;
+//     var account_one_ending_balance;
+//     var account_two_ending_balance;
+//
+//     var amount = 10;
+//
+//     return MetaCoin.deployed().then(function(instance) {
+//       meta = instance;
+//       return meta.getBalance.call(account_one);
+//     }).then(function(balance) {
+//       account_one_starting_balance = balance.toNumber();
+//       return meta.getBalance.call(account_two);
+//     }).then(function(balance) {
+//       account_two_starting_balance = balance.toNumber();
+//       return meta.sendCoin(account_two, amount, {from: account_one});
+//     }).then(function() {
+//       return meta.getBalance.call(account_one);
+//     }).then(function(balance) {
+//       account_one_ending_balance = balance.toNumber();
+//       return meta.getBalance.call(account_two);
+//     }).then(function(balance) {
+//       account_two_ending_balance = balance.toNumber();
+//
+//       assert.equal(account_one_ending_balance, account_one_starting_balance - amount, "Amount wasn't correctly taken from the sender");
+//       assert.equal(account_two_ending_balance, account_two_starting_balance + amount, "Amount wasn't correctly sent to the receiver");
+//     });
+//   });
+// });
